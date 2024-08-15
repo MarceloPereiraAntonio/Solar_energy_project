@@ -1,7 +1,7 @@
 
-# Setup Docker Laravel 11 com PHP 8.3
+# Laravel 11
 
-### Passo a passo
+### Passo a passo para rodar esse projeto
 Clone Repositório
 ```sh
 git clone -b https://github.com/MarceloPereiraAntonio/Laravel-11
