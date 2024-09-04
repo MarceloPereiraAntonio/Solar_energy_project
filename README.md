@@ -1,6 +1,4 @@
 
-# Laravel 11
-
 ### Passo a passo para rodar esse projeto
 Clone Repositório
 ```sh
