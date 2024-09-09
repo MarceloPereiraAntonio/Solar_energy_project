@@ -11,8 +11,7 @@ use Illuminate\Http\{JsonResponse, Response};
  * @OA\Schema(
  *   schema="Client",
  *   type="object",
- *   required={"id", "name", "email", "phone", "document"},
- *   @OA\Property(property="id", type="integer", example=1),
+ *   required={"name", "email", "phone", "document"},
  *   @OA\Property(property="name", type="string", example="Marcelo"),
  *   @OA\Property(property="email", type="string", example="marcelo@teste.com"),
  *   @OA\Property(property="phone", type="string", example="11981847045"),
@@ -22,29 +21,30 @@ use Illuminate\Http\{JsonResponse, Response};
 class ClientController extends Controller
 {
 
-/**
-* @OA\Get(
-*     path="/api/client",
-*     summary="List clients with filters and pagination.",
-*     tags={"Client"},
-*     @OA\Response(
-*         response=200,
-*         description="Client list successfully returned",
-*         @OA\JsonContent(
-*             type="object",
-*             @OA\Property(property="data", type="array",
-*                 @OA\Items(ref="#/components/schemas/Client")
-*             ),
-*             @OA\Property(property="links", type="object"),
-*             @OA\Property(property="meta", type="object")
-*         )
-*     ),
-*     @OA\Response(
-*         response=204,
-*         description="No client found"
-*     )
-* )
-*/
+   /**
+    * @OA\Get(
+    *     path="/api/client",
+    *     summary="List clients with pagination.",
+    *     tags={"Client"},
+    *     @OA\Response(
+    *         response=200,
+    *         description="Client list successfully returned",
+    *         @OA\JsonContent(
+    *             type="object",
+    *             @OA\Property(property="data", type="array",
+    *                 @OA\Items(ref="#/components/schemas/Client")
+    *             ),
+    *             @OA\Property(property="links", type="object"),
+    *             @OA\Property(property="meta", type="object")
+    *         )
+    *     ),
+    *     @OA\Response(
+    *         response=204,
+    *         description="No client found"
+    *     )
+    * )
+    */
+
    public function index(): JsonResponse
    {
        $clients = Client::paginate();
