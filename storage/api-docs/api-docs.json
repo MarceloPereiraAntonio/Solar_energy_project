@@ -11,7 +11,7 @@
                 "tags": [
                     "Client"
                 ],
-                "summary": "List clients with filters and pagination.",
+                "summary": "List clients with pagination.",
                 "operationId": "0a18e156d37b5b1b2b76f40ad6d88f0f",
                 "responses": {
                     "200": {
@@ -237,6 +237,404 @@
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/Client"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/equipment": {
+            "get": {
+                "tags": [
+                    "Equipment"
+                ],
+                "summary": "List equipment with filters and pagination.",
+                "operationId": "2ad4b66aa7b6a0a7093d06a590e918fd",
+                "responses": {
+                    "200": {
+                        "description": "Equipment list successfully returned",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Equipment"
+                                            }
+                                        },
+                                        "links": {
+                                            "type": "object"
+                                        },
+                                        "meta": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "No equipment found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Equipment"
+                ],
+                "summary": "Create a new Equipment",
+                "operationId": "527bd33d0c498c920b5598b2df1121f9",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "item"
+                                ],
+                                "properties": {
+                                    "item": {
+                                        "type": "string",
+                                        "example": "Fita de Aterramento"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "New equipment created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Equipment"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/equipment/{id}": {
+            "get": {
+                "tags": [
+                    "Equipment"
+                ],
+                "summary": "Show a specific Equipment",
+                "operationId": "99cf5feae86ff6390feea3b126c1ec03",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID Equipment",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Equipment successfully found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Equipment"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Equipment not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Equipment"
+                ],
+                "summary": "Delete a specific Equipment",
+                "operationId": "8d974ec43c89d722d98e399ef89eff76",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID Equipment",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Equipment successfully deleted"
+                    },
+                    "404": {
+                        "description": "Equipment not found"
+                    }
+                }
+            }
+        },
+        "/api/equipment/{ID}": {
+            "put": {
+                "tags": [
+                    "Equipment"
+                ],
+                "summary": "Update a equipment",
+                "operationId": "ce3548bc2fd0228e7c9523869bfeee9a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID equipment",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "id",
+                                    "item"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "item": {
+                                        "type": "integer",
+                                        "example": "Parafusos"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Equipment successfully updated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Equipment"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/install_type": {
+            "get": {
+                "tags": [
+                    "InstallationType"
+                ],
+                "summary": "List install type with pagination.",
+                "operationId": "acefeb6a4e1d6cf1d42d4f09d30af86f",
+                "responses": {
+                    "200": {
+                        "description": "Install type successfully returned",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/InstallationType"
+                                            }
+                                        },
+                                        "links": {
+                                            "type": "object"
+                                        },
+                                        "meta": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "No Installation type found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "InstallationType"
+                ],
+                "summary": "Create a new Installation type",
+                "operationId": "66c79092303b11e84fe3d26bb061ea36",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "item"
+                                ],
+                                "properties": {
+                                    "item": {
+                                        "type": "string",
+                                        "example": "Laje"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "New install type created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InstallationType"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/install_type/{id}": {
+            "get": {
+                "tags": [
+                    "InstallationType"
+                ],
+                "summary": "Show a specific Installation type",
+                "operationId": "8a74e1244c4b32e5f85ff1f22cfa31fe",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID Installation type",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Installation type successfully found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InstallationType"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Installation type not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "InstallationType"
+                ],
+                "summary": "Delete a specific installation type",
+                "operationId": "9afa2ad7716a8b2a4b1131607e20191a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Delete id install type",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Install type successfully deleted"
+                    },
+                    "404": {
+                        "description": "Install type not found"
+                    }
+                }
+            }
+        },
+        "/api/install_type/{ID}": {
+            "put": {
+                "tags": [
+                    "InstallationType"
+                ],
+                "summary": "Update a Installation type",
+                "operationId": "48e69971cb73b4e424ba25f931c975c5",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID Installation type",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "id",
+                                    "item"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "example": "3"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Campo"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Installation type successfully updated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InstallationType"
                                 }
                             }
                         }
@@ -539,17 +937,12 @@
         "schemas": {
             "Client": {
                 "required": [
-                    "id",
                     "name",
                     "email",
                     "phone",
                     "document"
                 ],
                 "properties": {
-                    "id": {
-                        "type": "integer",
-                        "example": 1
-                    },
                     "name": {
                         "type": "string",
                         "example": "Marcelo"
@@ -565,6 +958,35 @@
                     "document": {
                         "type": "string",
                         "example": "12345678912"
+                    }
+                },
+                "type": "object"
+            },
+            "Equipment": {
+                "required": [
+                    "item"
+                ],
+                "properties": {
+                    "item": {
+                        "type": "string",
+                        "example": "Estrutura"
+                    }
+                },
+                "type": "object"
+            },
+            "InstallationType": {
+                "required": [
+                    "id",
+                    "item"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "item": {
+                        "type": "string",
+                        "example": "Laje"
                     }
                 },
                 "type": "object"
@@ -624,6 +1046,14 @@
         {
             "name": "Client",
             "description": "Client"
+        },
+        {
+            "name": "Equipment",
+            "description": "Equipment"
+        },
+        {
+            "name": "InstallationType",
+            "description": "InstallationType"
         },
         {
             "name": "Projects",
