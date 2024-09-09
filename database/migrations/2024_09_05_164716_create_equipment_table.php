@@ -12,13 +12,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('equipments', function (Blueprint $table) {
+        Schema::create('equipment', function (Blueprint $table) {
             $table->id();
             $table->string('item');
             $table->timestamps();
         });
 
-        DB::table('equipments')->insert([
+        DB::table('equipment')->insert([
             ['item' => 'Módulo', 'created_at' => now(), 'updated_at' => now()],
             ['item' => 'Inversor','created_at' => now(), 'updated_at' => now()],
             ['item' => 'Microinversor', 'created_at' => now(), 'updated_at' => now()],

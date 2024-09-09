@@ -5,7 +5,7 @@ return [
     'documentations' => [
         'default' => [
             'api' => [
-                'title' => 'L5 Swagger UI',
+                'title' => 'Solar energy projects',
             ],
 
             'routes' => [
@@ -31,7 +31,7 @@ return [
                 'docs_yaml' => 'api-docs.yaml',
 
                 /*
-                 * Set this to `json` or `yaml` to determine which documentation file to use in UI
+                 * Set this to `json` documentationor `yaml` to determine which documentation file to use in UI
                  */
                 'format_to_use_for_docs' => env('L5_FORMAT_TO_USE_FOR_DOCS', 'json'),
 

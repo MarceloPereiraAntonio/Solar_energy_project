@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('project_equipment', function (Blueprint $table) {
             $table->id();
             $table->foreignId('project_id')->constrained('projects');
-            $table->foreignId('equipment_id')->constrained('equipments');
+            $table->foreignId('equipment_id')->constrained('equipment');
             $table->integer('amount')->default(1);
             
         });
