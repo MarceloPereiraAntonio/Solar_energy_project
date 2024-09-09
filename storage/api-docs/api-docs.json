@@ -6,13 +6,13 @@
         "version": "1.0.0"
     },
     "paths": {
-        "/api/clients": {
+        "/api/client": {
             "get": {
                 "tags": [
                     "Client"
                 ],
                 "summary": "List clients with filters and pagination.",
-                "operationId": "413c12320d4121431e38339f45ecaa7c",
+                "operationId": "0a18e156d37b5b1b2b76f40ad6d88f0f",
                 "responses": {
                     "200": {
                         "description": "Client list successfully returned",
@@ -42,15 +42,13 @@
                         "description": "No client found"
                     }
                 }
-            }
-        },
-        "/api/Client": {
+            },
             "post": {
                 "tags": [
                     "Client"
                 ],
                 "summary": "Create a new project",
-                "operationId": "73820900a45a43d5c7df9be1ddaf28b0",
+                "operationId": "71b9c5731a56b998d9660dca68109f0b",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -58,43 +56,26 @@
                             "schema": {
                                 "required": [
                                     "name",
-                                    "client_id",
-                                    "install_type_id",
-                                    "region",
-                                    "equipment"
+                                    "email",
+                                    "phone",
+                                    "document"
                                 ],
                                 "properties": {
                                     "name": {
                                         "type": "string",
-                                        "example": "Novo Projeto"
+                                        "example": "Marcelo"
                                     },
-                                    "client_id": {
-                                        "type": "integer",
-                                        "example": 1
-                                    },
-                                    "install_type_id": {
-                                        "type": "integer",
-                                        "example": 1
-                                    },
-                                    "region": {
+                                    "email": {
                                         "type": "string",
-                                        "example": "SP"
+                                        "example": "marcelo@teste.com"
                                     },
-                                    "equipment": {
-                                        "type": "array",
-                                        "items": {
-                                            "properties": {
-                                                "id": {
-                                                    "type": "integer",
-                                                    "example": 1
-                                                },
-                                                "amount": {
-                                                    "type": "integer",
-                                                    "example": 2
-                                                }
-                                            },
-                                            "type": "object"
-                                        }
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "11981847044"
+                                    },
+                                    "document": {
+                                        "type": "string",
+                                        "example": "48704357898"
                                     }
                                 },
                                 "type": "object"
@@ -104,11 +85,11 @@
                 },
                 "responses": {
                     "201": {
-                        "description": "New project created",
+                        "description": "New client created",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Project"
+                                    "$ref": "#/components/schemas/Client"
                                 }
                             }
                         }
@@ -119,13 +100,13 @@
                 }
             }
         },
-        "/api/Client/{id}": {
+        "/api/client/{id}": {
             "get": {
                 "tags": [
                     "Client"
                 ],
                 "summary": "Show a specific Client",
-                "operationId": "e98d7c59202b8dd667cdc46de16597bd",
+                "operationId": "d8c3740a805d96c4d13f0d5208ee13af",
                 "parameters": [
                     {
                         "name": "id",
@@ -158,7 +139,7 @@
                     "Client"
                 ],
                 "summary": "Delete a specific Client",
-                "operationId": "2113274439b3b705c4b23bb1907e1a40",
+                "operationId": "965bd9e4886723e57fa899c9a5678bf8",
                 "parameters": [
                     {
                         "name": "id",
@@ -180,13 +161,13 @@
                 }
             }
         },
-        "/api/Client/{ID}": {
+        "/api/client/{ID}": {
             "put": {
                 "tags": [
                     "Client"
                 ],
                 "summary": "Update a client",
-                "operationId": "fa2a21aba648715a4a32aa3773d4b1b3",
+                "operationId": "6ece461397336ab6c48ca193c556327d",
                 "parameters": [
                     {
                         "name": "id",
