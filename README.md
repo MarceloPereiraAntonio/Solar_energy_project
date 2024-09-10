@@ -62,3 +62,6 @@ php artisan migrate
 
 Acesse o projeto
 [http://localhost:8000](http://localhost:8000)
+
+Para acessar a documentação do projeto acesse o essa URL
+[http://localhost:8000/api/documentation](http://localhost:8000/api/documentation)
