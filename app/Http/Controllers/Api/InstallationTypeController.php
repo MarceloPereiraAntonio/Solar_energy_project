@@ -12,8 +12,7 @@ use Illuminate\Http\{JsonResponse, Response};
  *   schema="InstallationType",
  *   type="object",
  *   required={"id", "item"},
- *   @OA\Property(property="id", type="integer", example=1),
- *   @OA\Property(property="item", type="string", example="Laje"),
+ *   @OA\Property(property="item", type="string", example="Laje")
  * )
  */
 class InstallationTypeController extends Controller
